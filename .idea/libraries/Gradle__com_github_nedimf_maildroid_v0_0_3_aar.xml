@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.nedimf:maildroid:v0.0.3@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8f46104f78a60a217317c7e6d06c552f/maildroid-v0.0.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8f46104f78a60a217317c7e6d06c552f/maildroid-v0.0.3/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.nedimf/maildroid/v0.0.3/6adccae6224e9b8d95730eee690b10b5d8e695ca/maildroid-v0.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

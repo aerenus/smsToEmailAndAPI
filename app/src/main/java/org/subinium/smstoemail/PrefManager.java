@@ -14,11 +14,13 @@ public class PrefManager {
     private static final String PREF_USER_NAME = "saved-username";
     private static final String PREF_PASSWORD = "saved-password";
     private static final String PREF_PORT = "saved-port";
+    private static final String PREF_API = "saved-api";
 
     private static final String DEFAULT_SERVER_NAME = "smtp.gmail.com";
     private static final String DEFAULT_USER_NAME = "";
     private static final String DEFAULT_PASSWORD = "";
     private static final String DEFAULT_PORT = "465";
+    private static final String DEFAULT_API = "https://edk.univera.com.tr:8443/mobile/";
 
     private PrefManager() {
 
@@ -79,4 +81,17 @@ public class PrefManager {
 
         return mPreferences.getString(PREF_PORT, DEFAULT_PORT);
     }
+
+
+
+    public void setAPI(String server) {
+
+        mPreferences.edit().putString(PREF_API, server).apply();
+    }
+
+    public String getAPI() {
+
+        return mPreferences.getString(PREF_API, DEFAULT_API);
+    }
+
 }

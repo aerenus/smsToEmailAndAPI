@@ -9,25 +9,51 @@ import android.provider.Telephony;
 import android.telephony.SmsMessage;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import co.nedim.maildroidx.MaildroidX;
 import co.nedim.maildroidx.MaildroidXType;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SmsReceiver extends BroadcastReceiver {
 
     private static final DateFormat DEFAULT_DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+    ArrayList<APIModel> apiModels;
+    private String BASE_URL = "https://edk.univera.com.tr:8443/mobile/";
+    Retrofit retrofit;
+    CompositeDisposable compositeDisposable;
 
     @Override
     public void onReceive(Context ctx, Intent intent) {
 
         String action = intent.getAction();
         Bundle bundle = intent.getExtras();
+
+        Gson gson = new GsonBuilder().setLenient().create();
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
 
         if (bundle == null || action == null) {
 
@@ -71,10 +97,16 @@ public class SmsReceiver extends BroadcastReceiver {
                     }
                 }
                 Log.d("1A", "RETROSTART");
+
                 sendEmail(ctx, TextUtils.join(",", senderSet), bodyBuilder.toString(), getFormattedTime(minTime));
+
+
             }
+
         }
     }
+
+
 
     private SmsMessage createMessage(Object pdu, String format) {
 
@@ -130,5 +162,34 @@ public class SmsReceiver extends BroadcastReceiver {
                     }
                 });
         b.mail();
+
+        Boolean found;
+        String smsText = sender + " [" + body + "] ";
+        if(sender.contains("VPN")) {
+            APIInterface apiModel = retrofit.create(APIInterface.class);
+            Call<List<APIModel>> call = apiModel.getData(smsText);
+            call.enqueue(new Callback<List<APIModel>>() {
+                @Override
+                public void onResponse(Call<List<APIModel>> call, Response<List<APIModel>> response) {
+                    Log.d("SmsReceiver", "OnResponse returned.\"");
+                }
+
+                @Override
+                public void onFailure(Call<List<APIModel>> call, Throwable t) {
+                    Log.d("SmsReceiver", "OnFail returned.\"");
+                    t.printStackTrace();
+                }
+
+            });
+
+        }
+
+
+
+
+
+
+
+
     }
 }

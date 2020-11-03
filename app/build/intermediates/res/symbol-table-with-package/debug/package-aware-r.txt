@@ -439,6 +439,7 @@ attr radioButtonStyle
 attr ratingBarStyle
 attr ratingBarStyleIndicator
 attr ratingBarStyleSmall
+attr recyclerViewStyle
 attr reverseLayout
 attr rippleColor
 attr scrimAnimationDuration
@@ -1151,6 +1152,7 @@ id custom
 id customPanel
 id decor_content_parent
 id default_activity_button
+id desc
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1164,6 +1166,7 @@ id edit_query
 id end
 id enterAlways
 id enterAlwaysCollapsed
+id et_api
 id et_password
 id et_port
 id et_server
@@ -1198,6 +1201,7 @@ id line1
 id line3
 id listMode
 id list_item
+id ll_API
 id ll_password
 id ll_port
 id ll_server
@@ -1290,6 +1294,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textViewAPI
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -2001,7 +2006,7 @@ styleable NavigationView android_background android_fitsSystemWindows android_ma
 styleable PopupWindow android_popupBackground android_popupAnimationStyle overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle
-styleable RecyclerView android_orientation android_descendantFocusability fastScrollEnabled fastScrollHorizontalThumbDrawable fastScrollHorizontalTrackDrawable fastScrollVerticalThumbDrawable fastScrollVerticalTrackDrawable layoutManager reverseLayout spanCount stackFromEnd
+styleable RecyclerView android_orientation android_clipToPadding android_descendantFocusability fastScrollEnabled fastScrollHorizontalThumbDrawable fastScrollHorizontalTrackDrawable fastScrollVerticalThumbDrawable fastScrollVerticalTrackDrawable layoutManager reverseLayout spanCount stackFromEnd
 styleable ScrimInsetsFrameLayout insetForeground
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon

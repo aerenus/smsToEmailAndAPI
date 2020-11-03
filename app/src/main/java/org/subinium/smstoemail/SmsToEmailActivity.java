@@ -13,10 +13,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.util.ArrayList;
+
+import io.reactivex.disposables.CompositeDisposable;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class SmsToEmailActivity extends AppCompatActivity {
 
     private static final String SMS_PERMISSION_NAME = "android.permission.RECEIVE_SMS";
     private static final int SMS_PERMISSION_REQ_CODE = 1;
+
+    ArrayList<APIModel> apiModels;
+    private String BASE_URL = "https://edk.univera.com.tr:8443/mobile/";
+    Retrofit retrofit;
+    CompositeDisposable compositeDisposable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +47,16 @@ public class SmsToEmailActivity extends AppCompatActivity {
                 requestPermissions(new String[]{SMS_PERMISSION_NAME}, SMS_PERMISSION_REQ_CODE);
             }
         }
+
+
+        Gson gson = new GsonBuilder().setLenient().create();
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -68,23 +91,28 @@ public class SmsToEmailActivity extends AppCompatActivity {
         final EditText etUsername = findViewById(R.id.et_username);
         final EditText etPassword = findViewById(R.id.et_password);
         final EditText etPort = findViewById(R.id.et_port);
+        final EditText etAPI = findViewById(R.id.et_api);
 
         PrefManager pm = PrefManager.getInstance(this);
         etServer.setText(pm.getServer());
         etUsername.setText(pm.getUsername());
         etPassword.setText(pm.getPassword());
         etPort.setText(pm.getPort());
+        etAPI.setText(pm.getAPI());
 
-        Button b = findViewById(R.id.b_save);
+        final Button b = findViewById(R.id.b_save);
         b.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-
+        b.setText("KAYDEDİLİYOR...");
                 PrefManager pm = PrefManager.getInstance(getApplicationContext());
                 pm.setServer(etServer.getText().toString());
                 pm.setUsername(etUsername.getText().toString());
                 pm.setPassword(etPassword.getText().toString());
+                pm.setPort(etPort.getText().toString());
+                pm.setAPI(etAPI.getText().toString());
+                b.setText("KAYDEDİLDİ");
             }
         });
     }

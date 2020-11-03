@@ -12,7 +12,7 @@
         android:id="@+id/ll_server"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:padding="10dp"
         android:weightSum="2"
@@ -42,7 +42,7 @@
         android:id="@+id/ll_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:padding="10dp"
         android:weightSum="2"
@@ -114,6 +114,7 @@
         android:orientation="horizontal"
         android:padding="10dp"
         android:weightSum="2"
+
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ll_password">
@@ -123,7 +124,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Port" />
+            android:text="Port"
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/et_port"
@@ -131,9 +133,54 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="number"
+            android:inputType="text"
             android:text="465" />
     </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/ll_API"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:weightSum="2"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_port">
+
+        <TextView
+            android:id="@+id/textViewAPI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="API URL kökü"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/et_api"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="text"
+            android:text="https://edk.univera.com.tr:8443/mobile/" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="Varsayılan konfigürasyon smtp.google.com, SSL: evet, port 465 ve mailadresi@gmail.com'dur. API URL kökü Uni-Port mobil uygulamasına bildirim gönderilmesini sağlar. Uygulama arka plandaydan işleme devam eder. Gönderim problemi yaşadığında pop-up bildirim gönderir. API'ye gönderilen SMS'lerde, VPN şifresi gönderilen tüm gönderici telefonlar VPN adı ile kaydedilmelidir. Kaydedilen isimlerin içerisinde VPN geçmelidir. (Örneğin: Vodafone VPN) "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_API" />
 
     <Button
         android:id="@+id/b_save"
@@ -143,7 +190,7 @@
         android:text="Kaydet"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_port" />
+        app:layout_constraintTop_toBottomOf="@id/desc" />
 
 
 
