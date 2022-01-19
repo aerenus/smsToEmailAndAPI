@@ -1,4 +1,4 @@
-# SMS To Email
+# SMS To Email  *** SUPPORT UP TO SDK 29 ***
 
 This app forwards all SMS messages received on the Android device to a specified email address.
 
