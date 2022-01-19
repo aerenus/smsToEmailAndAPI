@@ -28,7 +28,7 @@ public class SmsToEmailActivity extends AppCompatActivity {
     private static final int SMS_PERMISSION_REQ_CODE = 1;
 
     ArrayList<APIModel> apiModels;
-    private String BASE_URL = "https://edk.univera.com.tr:8443/mobile/";
+    private String BASE_URL = "https://*.univera.com.tr:8443/";
     Retrofit retrofit;
     CompositeDisposable compositeDisposable;
 
