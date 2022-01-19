@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SMS_to_Email.iml" filepath="$PROJECT_DIR$/.idea/modules/SMS_to_Email.iml" group="SMS_to_Email" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="SMS to Email/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SMS_to_Email.iml" filepath="$PROJECT_DIR$/.idea/modules/SMS_to_Email.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SMS_to_Email.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SMS_to_Email.app.iml" />
     </modules>
   </component>
 </project>

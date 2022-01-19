@@ -105,7 +105,7 @@ public class SmsToEmailActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-        b.setText("KAYDEDİLİYOR...");
+                b.setText("KAYDEDİLİYOR...");
                 PrefManager pm = PrefManager.getInstance(getApplicationContext());
                 pm.setServer(etServer.getText().toString());
                 pm.setUsername(etUsername.getText().toString());
